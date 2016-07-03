@@ -5,6 +5,14 @@ Role Name
 
 git-based-deploy: An Ansible role to create git-based deployment of your website.
 
+The role is available on Ansible Galaxy: [https://galaxy.ansible.com/wahidsadik/git-based-deploy/](https://galaxy.ansible.com/wahidsadik/git-based-deploy/).
+
+To add this role from Ansible Galaxy, run: `ansible-galaxy install wahidsadik.git-based-deploy`.
+
+To add this from your Ansible `requirements.yml`, add this to the file:
+
+    src: wahidsadik.git-based-deploy
+
 Requirements
 ------------
 
@@ -43,26 +51,29 @@ Example Playbook
 ----------------
 
 Example 1: Simplest example with minimum variable passing
+
     - hosts: servers
       remote_user: root
       roles:
-         - { role: wahidsadik.git-based-deploy, website: example.com }
+      - { role: wahidsadik.git-based-deploy, website: example.com }
 
  Example 2: With sudo and  minimum variable passing
-     - hosts: servers
-       remote_user: deployer
-       become: true
-       become_method: sudo
-       roles:
-          - { role: wahidsadik.git-based-deploy, website: example.com }
+
+    - hosts: servers
+      remote_user: deployer
+      become: true
+      become_method: sudo
+      roles:
+      - { role: wahidsadik.git-based-deploy, website: example.com }
 
  Example 3: Overriding additional variables
-     - hosts: servers
-       remote_user: deployer
-       become: true
-       become_method: sudo
-       roles:
-          - { role: wahidsadik.git-based-deploy, website: example.com,  www_user: myuser, www_group: www}
+
+    - hosts: servers
+      remote_user: deployer
+      become: true
+      become_method: sudo
+      roles:
+      - { role: wahidsadik.git-based-deploy, website: example.com,  www_user: myuser, www_group: www}
 
 License
 -------
