@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wahidsadik/git-based-deploy.svg?branch=master)](https://travis-ci.org/wahidsadik/git-based-deploy)
+
 Role Name
 =========
 
