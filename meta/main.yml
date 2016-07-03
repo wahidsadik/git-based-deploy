@@ -141,6 +141,6 @@ galaxy_info:
   #  - stretch
   #  - wheezy
 
-  galaxy_tags: 'git', 'website'
+  galaxy_tags: ['git', 'website']
 
 dependencies: []
