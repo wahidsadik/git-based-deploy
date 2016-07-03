@@ -1,0 +1,38 @@
+---
+
+- debug: msg="repo_root = {{repo_root}}"
+- debug: msg="www_root = {{www_root}}"
+- debug: msg="www_user = {{www_user}}"
+- debug: msg="www_group = {{www_group}}"
+- debug: msg="website = {{website}}"
+- debug: msg="Repo will be created at = {{repo_root}}/{{website}}"
+- debug: msg="Git will put files at = {{www_root}}/{{website}}"
+
+- name: Ensure permission of owner {{www_user}} and group {{www_group}} at {{repo_root}}
+  action:
+    file path={{repo_root}} state=directory
+    owner={{www_user}} group={{www_group}} mode=2754
+  become: true
+
+- name: Ensure permission of owner {{www_user}} and group {{www_group}} at {{www_root}}/{{website}}
+  action: >
+    file path={{www_root}}/{{website}}
+    owner={{www_user}} group={{www_group}} state=directory recurse=yes
+
+- file: path={{repo_root}}/{{website}}.git state=directory
+
+- name: Install git if not installed already
+  action: apt pkg=git state=installed
+
+- name: Step up git with no workspace
+  command: git init --bare chdir={{repo_root}}/{{website}}.git
+
+- name: Copy git hook
+  template: >
+    src=post-receive.j2
+    dest={{repo_root}}/{{website}}.git/hooks/post-receive mode=755
+
+- name: Fix all permissions
+  action: >
+    file path={{repo_root}}
+    owner={{www_user}} group={{www_group}} state=directory recurse=yes

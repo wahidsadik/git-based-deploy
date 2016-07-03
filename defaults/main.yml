@@ -1,0 +1,5 @@
+---
+www_root: /var/www
+repo_root: /var/repo
+www_user: deployer
+www_group: www-data
