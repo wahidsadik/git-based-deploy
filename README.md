@@ -4,7 +4,7 @@
 Role Name
 =========
 
-git-based-deploy: An Ansible role to create git-based deployment of your website.
+git-based-deploy: An Ansible role to create git-based deployment of a static website.
 
 The role is available on Ansible Galaxy: [https://galaxy.ansible.com/wahidsadik/git-based-deploy/](https://galaxy.ansible.com/wahidsadik/git-based-deploy/).
 
