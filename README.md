@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/wahidsadik/git-based-deploy.svg?branch=master)](https://travis-ci.org/wahidsadik/git-based-deploy)
+[![GitHub version](https://badge.fury.io/gh/wahidsadik%2Fgit-based-deploy.svg)](https://badge.fury.io/gh/wahidsadik%2Fgit-based-deploy)
 
 Role Name
 =========
@@ -21,7 +22,7 @@ The `remote_user` used run this role should be able change permission of directo
 Role Variables
 --------------
 
-The role defines the following _default_ variables:
+The role defines the following variables in `defaults/main.yml`:
 
     www_root: /var/www
     repo_root: /var/repo
